@@ -1,4 +1,4 @@
-package kr.co.iclave.board.config.error;
+package kr.co.iclave.board.controller.model.error;
 
 import lombok.Builder;
 import lombok.Getter;

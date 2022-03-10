@@ -1,6 +1,6 @@
 package kr.co.iclave.board.config.advice;
 
-import kr.co.iclave.board.config.error.ErrorResponse;
+import kr.co.iclave.board.controller.model.error.ErrorResponse;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
