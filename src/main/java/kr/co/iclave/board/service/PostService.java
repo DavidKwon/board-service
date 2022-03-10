@@ -44,7 +44,6 @@ public class PostService {
     }
 
     public void updateSinglePost(Long id, String title, String content) {
-//        postDao.updatePost(id, title, content);
         PostEntity postEntity = postDao.findPostById(id);
 
         postDao.savePost(

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -14,12 +15,14 @@ public class PostDao {
 
     private final PostRepository postRepository;
 
+    @Transactional(readOnly = true)
     public List<PostEntity> findAllPosts() {
         return postRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public PostEntity findPostById(Long id) {
-        return postRepository.findById(id).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
+        return postRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("게시글을 찾을 수 없습니다."));
     }
 
     @Transactional
@@ -32,13 +35,9 @@ public class PostDao {
         savePost(newPost);
     }
 
+    @Transactional
     public void savePost(PostEntity postEntity) {
         postRepository.save(postEntity);
-    }
-
-    @Transactional
-    public void updatePost(Long id, String title, String content) {
-        postRepository.updateSinglePost(id, title, content);
     }
 
     @Transactional

@@ -1,19 +1,15 @@
 package kr.co.iclave.board.controller.model;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
 @Getter
-@Builder
-public class PostModel {
+@SuperBuilder
+public class PostModel extends BasePostModel {
 
     private Long id;
-
-    private String title;
-
-    private String content;
 
     private LocalDateTime createdAt;
 
